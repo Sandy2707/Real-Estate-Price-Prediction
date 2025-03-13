@@ -1,0 +1,7 @@
+@app.route('/favicon.ico')
+def favicon():
+    favicon_path = os.path.join(os.path.dirname(__file__), 'static', 'favicon.ico')
+    if os.path.exists(favicon_path):
+        return send_from_directory(os.path.dirname(favicon_path), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    else:
+        return '', 204  # Return a 204 No Content response if no favicon is found
